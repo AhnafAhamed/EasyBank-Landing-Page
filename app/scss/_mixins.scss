@@ -1,0 +1,31 @@
+//1024/16 = 64em
+@media (min-width: 64em) {
+}
+
+//Breakpoint up means this viewpoint and up
+//640px, 1024px, 1400px
+$breakpoints-up: (
+  "medium": "40em",
+  "large": "64em",
+  "xlarge": "87.5em",
+);
+
+//Breakpoint down means this viewpoint and down
+//639px, 1023px, 1399px
+$breakpoints-down: (
+  "small": "39.9375em",
+  "medium": "63.9735em",
+  "large": "87.4735em",
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up , $size )) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down , $size )) {
+    @content;
+  }
+}

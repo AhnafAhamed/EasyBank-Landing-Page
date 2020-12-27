@@ -1,0 +1,99 @@
+.footer {
+  background-color: $darkBlue;
+  color: $white;
+  padding: 4rem;
+  text-align: center;
+
+  @include breakpoint-up(large) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 2fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "logo links1 links2 cta"
+      "social links1 links2 copyright";
+    justify-items: start;
+  }
+
+  a {
+    color: $white;
+  }
+  &__logo {
+    z-index: 999;
+    display: inline-block;
+    @include breakpoint-down(medium) {
+      margin-bottom: 3rem;
+    }
+    @include breakpoint-up(large) {
+      grid-area: logo;
+    }
+  }
+  &__social {
+    z-index: 999;
+    @include breakpoint-down(medium) {
+      margin-bottom: 3rem;
+    }
+    @include breakpoint-up(large) {
+      grid-area: social;
+      align-self: flex-end;
+    }
+    a {
+      display: inline-block;
+    }
+    a:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+  &__links {
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2.2;
+    font-size: 1.5rem;
+    @include breakpoint-up(large) {
+      justify-content: space-between;
+      align-items: flex-start;
+      line-height: 1;
+    }
+
+    a {
+      @include breakpoint-down(medium) {
+        line-height: 2;
+      }
+    }
+    &.col1 {
+      @include breakpoint-up(large) {
+        grid-area: links1;
+      }
+    }
+    &.col2 {
+      @include breakpoint-up(large) {
+        grid-area: links2;
+      }
+      @include breakpoint-down(medium) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  &__cta {
+    @include breakpoint-up(large) {
+      grid-area: cta;
+      text-align: right;
+      justify-self: flex-end;
+    }
+    a.button {
+      @include breakpoint-down(medium) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  &__copyright {
+    font-size: 1.5rem;
+    color: $veryLightGray;
+    @include breakpoint-up(large) {
+      grid-area: copyright;
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
+  }
+}

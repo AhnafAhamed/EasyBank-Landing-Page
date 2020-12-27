@@ -1,0 +1,148 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Public Sans", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: 300;
+  color: $grayishBlue;
+  overflow-x: hidden;
+  @include breakpoint-up(large) {
+    font-size: 1.8rem;
+  }
+
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+//Spacing
+.container {
+  max-width: 111.1rem;
+  margin: 0 auto;
+
+  &--pall {
+    padding: 3.6rem 2.4rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 9.6rem;
+      padding-bottom: 9.6rem;
+    }
+  }
+
+  &--py {
+    padding-top: 3.6rem;
+    padding-bottom: 3.6rem;
+  }
+  &--px {
+    padding-right: 2.4rem;
+    padding-left: 2.4rem;
+  }
+  &--pt {
+    padding-top: 3.6rem;
+  }
+  &--pr {
+    padding-right: 2.4rem;
+  }
+  &--pb {
+    padding-bottom: 3.6rem;
+  }
+  &--pl {
+    padding-left: 2.4rem;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0px;
+  font-weight: 300;
+  line-height: 1.15;
+  color: $darkBlue;
+}
+h1 {
+  font-size: 3.7rem;
+  margin-bottom: 2.4rem;
+  @include breakpoint-up(large) {
+    font-size: 5.2rem;
+  }
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+  @include breakpoint-up(large) {
+    font-size: 3.6rem;
+    margin-bottom: 3.6rem;
+  }
+}
+P {
+  line-height: 1.5;
+  margin-bottom: 3.6rem;
+}
+//flexbox
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+  &-jc-c {
+    justify-content: center;
+  }
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// Buttons
+button,
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 1.4rem 3.5rem;
+  font-size: 1.4rem;
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  border: none;
+  color: $white;
+  font-weight: 400;
+  transition: opacity 300ms ease-in-out;
+  z-index: 1;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+//visibility
+
+.hide-for-mobile {
+  //hide for tablet and mobile
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+.hide-for-desktop {
+  //hide fpr desktop
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}
